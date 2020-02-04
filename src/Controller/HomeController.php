@@ -2,16 +2,15 @@
 
 namespace App\Controller;
 
-use App\Model\Test;
 use App\Services\ConverterJsonTree;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use App\Person;
+use Symfony\Component\Routing\Annotation\Route;
 
 class HomeController extends AbstractController
 {
 
     /**
-     * @Route("/json", name="json")
+     * @Route("/", name="json")
      */
     public function jsonConverter()
     {

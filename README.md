@@ -12,9 +12,9 @@ __Symfony:__ Version 5.0.3
 __Go to mint_php_task1 directory and run in bash.__ <br />
 ```composer install```
 
-## Route
-route: /json
-
 ## Run app:
 __Go to mint_php_task1 directory and run in bash.__ <br />
 ```symfony server:start```
+
+## Open browser
+``` http://127.0.0.1:8000/ ```
