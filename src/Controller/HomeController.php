@@ -21,7 +21,7 @@ class HomeController extends AbstractController
         $treeJson = json_decode($treeString, true);
 
         ConverterJsonTree::convert($treeJson, $listJson);
-
+        dump($treeJson);
         return $this->render('home/index.html.twig', [
             "treeJson" => json_encode($treeJson),
         ]);

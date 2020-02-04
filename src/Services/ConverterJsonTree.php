@@ -12,13 +12,12 @@ class ConverterJsonTree
     {
         self::$listJson = $listJson;
         self::recursiveTree($treeJson);
-        dump($treeJson);
     }
 
     public static function recursiveTree(array &$treeJson)
     {
         foreach ($treeJson as $k=>$tj) {
-            self::setNameFromList($treeJson, $treeJson[$k]["id"]);
+            self::setNameFromList($treeJson[$k], $treeJson[$k]["id"]);
             self::recursiveTree($treeJson[$k]["children"]);
         }
     }
@@ -26,10 +25,9 @@ class ConverterJsonTree
     public static function setNameFromList(array &$treeJson, $number)
     {
         foreach (self::$listJson as $k=>$jl) {
-            $translations = self::$listJson[$k]["translations"];
             if($jl["category_id"] == $number)
             {
-                $translations = $jl["translations"];
+                $translations = self::$listJson[$k]["translations"];
                 $lang = ["pl_PL", "en_US"];
                 foreach ($lang as $l)
                 {
