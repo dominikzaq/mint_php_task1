@@ -24,7 +24,9 @@ class HomeController extends AbstractController
         $result = $mint->convert($treeJson, $listJson);
 
         return $this->render('home/index.html.twig', [
-            "treeJson" => json_encode($result),
+            "listJson" => json_encode($listJson),
+            "treeJson" => json_encode($treeJson),
+            "result" => json_encode($result),
         ]);
     }
 }

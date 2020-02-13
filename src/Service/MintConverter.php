@@ -17,20 +17,18 @@ class MintConverter
 
     private function recursiveTree(array &$treeJson): void
     {
-        foreach ($treeJson as $k=>$tj) {
-            $this->setNameFromList($treeJson[$k], $treeJson[$k]["id"]);
-            $this->recursiveTree($treeJson[$k]["children"]);
+        for($i = 0; $i < count($treeJson); $i++) {
+            $this->setNameFromList($treeJson[$i], $treeJson[$i]["id"]);
+            $this->recursiveTree($treeJson[$i]["children"]);
         }
     }
 
-    private function setNameFromList(array &$treeJson, int $number): void
+    private function setNameFromList(array &$treeJson, int $idList): void
     {
-        foreach ($this->listJson as $k=>$jl) {
-            if($jl["category_id"] == $number)
+        foreach ($this->listJson as $key => $value) {
+            if($value["category_id"] == $idList)
             {
-                dump($jl["category_id"]);
-                dump($$number);
-                $translations = $this->listJson[$k]["translations"];
+                $translations = $this->listJson[$key]["translations"];
                 $lang = ["pl_PL", "en_US"];
                 foreach ($lang as $l)
                 {

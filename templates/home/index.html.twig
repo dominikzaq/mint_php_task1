@@ -3,5 +3,18 @@
 {% block title %}Mint task1{% endblock %}
 
 {% block body %}
-    {{ treeJson }}
+    <div class="container">
+        <div class="jumbotron">
+            <h1>Input Tree: </h1>
+            {{ treeJson }}
+
+            <h1>Input List: </h1>
+            {{ listJson }}
+
+            <h1>Result:</h1>
+            {{ result }}
+        </div>
+    </div>
+
+
 {% endblock %}
