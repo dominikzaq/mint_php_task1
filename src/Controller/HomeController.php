@@ -2,7 +2,7 @@
 
 namespace App\Controller;
 
-use App\Services\ConverterJsonTree;
+use App\Service\MintConverter;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -20,10 +20,11 @@ class HomeController extends AbstractController
         $treeString = file_get_contents("tree.json");
         $treeJson = json_decode($treeString, true);
 
-        ConverterJsonTree::convert($treeJson, $listJson);
-        dump($treeJson);
+        $mint = new MintConverter();
+        $result = $mint->convert($treeJson, $listJson);
+
         return $this->render('home/index.html.twig', [
-            "treeJson" => json_encode($treeJson),
+            "treeJson" => json_encode($result),
         ]);
     }
 }
